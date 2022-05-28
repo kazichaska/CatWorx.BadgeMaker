@@ -34,20 +34,13 @@ namespace CatWorx.BadgeMaker
                 return employees;
             }
 
-        // Change the type of the employee parameter
-            static void PrintEnployees(List<Employee> employees)
-            {
-                for (int i = 0; i < employees.Count; i++)
-                {
-                    string template = "{0,-10}\t{1,-20}\t{2}";
-                    Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetName(), employees[i].GetPhotoUrl()));
-                }
-            }
-
            static void Main(string[] args) //entry point
             {
-                List<Employee> employees = GetEmployees();
-                PrintEnployees(employees);
+                List<Employee> employees = new List<Employee>();
+                employees = GetEmployees();
+                
+                Util.MakeCSV(employees);
+                Util.MakeBadges(employees);
             }
         
     }
