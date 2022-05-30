@@ -33,3 +33,4 @@
 /Users/kaziislam/msu/projects/c#/CatWorx.BadgeMaker/bin/Debug/netcoreapp6.0/runtimes/osx-x64/native/libpixman-1.0.dylib
 /Users/kaziislam/msu/projects/c#/CatWorx.BadgeMaker/bin/Debug/netcoreapp6.0/runtimes/osx-x64/native/libpng16.16.dylib
 /Users/kaziislam/msu/projects/c#/CatWorx.BadgeMaker/bin/Debug/netcoreapp6.0/runtimes/osx-x64/native/libtiff.5.dylib
+/Users/kaziislam/msu/projects/c#/CatWorx.BadgeMaker/bin/Debug/netcoreapp6.0/Newtonsoft.Json.dll

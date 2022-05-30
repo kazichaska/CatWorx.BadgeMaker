@@ -5,43 +5,30 @@ namespace CatWorx.BadgeMaker
 {
     class Program
     {
-        static List<Employee> GetEmployees()
+        static void Main(string[] args) //entry point
+        {
+            List<Employee> employees;
+            Console.WriteLine("Would you like to enter an employee? (y/n): ");
+            string answer_1 = Console.ReadLine();
+            if (answer_1 == "y" || answer_1 == "Y" || answer_1 == "yes" || answer_1 == "Yes" || answer_1 == "YES")
             {
-                List<Employee> employees = new List<Employee>();
-                // Collect user values until the value is an empty string
-                while (true)
-                {
-                    Console.WriteLine("Please enter a name: (leave empty and hit ENTER to exit!): ");
-                    string firstName = Console.ReadLine();
-                    // Break if the user hits ENETER without typing a name
-                    if (firstName == "")
-                    {
-                        break;
-                    }
-                    // add a Console.ReadLine() for each value
-                    Console.WriteLine("Enter last name: ");
-                    string lastName = Console.ReadLine();
-                    Console.WriteLine("Enter ID: ");
-                    int id = Int32.Parse(Console.ReadLine());
-                    Console.WriteLine("Enter photo URL: ");
-                    string photoUrl = Console.ReadLine();
-                    // Create a new Employee instance
-                    Employee currentEmployee = new Employee(firstName, lastName, id, photoUrl);
-                    // Add currentEmployee, not a string
-                    employees.Add(currentEmployee);
-                }
-                // This is important to return the list of employees
-                return employees;
-            }
-
-           static void Main(string[] args) //entry point
-            {
-                List<Employee> employees = new List<Employee>();
-                employees = GetEmployees();
-                
+                employees = PeopleFetcher.GetEmployees();
+                // employees = PeopleFetcher.GetFromAPI();
+                Util.PrintEnployees(employees);
                 Util.MakeCSV(employees);
                 Util.MakeBadges(employees);
             }
-        
+
+            Console.WriteLine("Would you like to fetch data from API? (y/n): ");
+            string answer_2 = Console.ReadLine();
+            if (answer_2 == "y" || answer_2 == "Y" || answer_2 == "yes" || answer_2 == "Yes" || answer_2 == "YES")
+            {
+                // employees = PeopleFetcher.GetEmployees();
+                employees = PeopleFetcher.GetFromAPI();
+                Util.PrintEnployees(employees);
+                Util.MakeCSV(employees);
+                Util.MakeBadges(employees);
+            }  
+        }
     }
 }
